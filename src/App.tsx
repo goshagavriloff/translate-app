@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from './container/Card';
 import SwapCard from './components/SwapCard';
 import { Context } from './app/Context';
+import SwitchCard from './components/SwitchCard';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className='font-sans'>
+    <SwitchCard context={context} setContext={callback}/>
       <div className="container mx-auto max-w-full mt-5 flex flex-col gap-2.5 md:w-[1200px] md:mt-0 md:flex-row">
         <Card context={context.from} setContext={callback} callbackFooter={upload}/>
         <SwapCard swap={{ callback: swap }} setContext={callback} />

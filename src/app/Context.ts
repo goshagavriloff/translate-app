@@ -1,4 +1,4 @@
-import { Translation } from "../types/Language";
+import { LanguageCode, Translation } from "../types/Language";
 import { ContextCard } from "./ContextCard";
 import { GoogleTranslator } from "./translate/text/GoogleTranslator";
 import { Translator } from "./translate/Translator";
@@ -36,9 +36,16 @@ export class Context {
     }
 
     setup():void{
+        const {translator}=this;
+        const {alphathet,auto_from,auto_to}=translator;
+
         [this.from,this.to].forEach((card:ContextCard)=>{
-            card.setAlphathet(this.translator.alphathet);
+            card.setAlphathet(alphathet);
+            card.text.txt="";
         });
+
+        this.from.setLanguage(auto_from as LanguageCode);
+        this.to.setLanguage(auto_to as LanguageCode);
     }
 
     clone(): Context {
