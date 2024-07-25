@@ -1,5 +1,5 @@
 import { FooterCode,  FooterProps, HeaderProps, HeaderTitle, TextProps } from "../types/Card";
-import { LanguageCode } from "../types/Language";
+import { LanguageCode} from "../types/Language";
 import { footers } from "../utils/constants";
 
 export class ContextCard{
@@ -8,6 +8,7 @@ export class ContextCard{
     footer:FooterProps;
 
     language:LanguageCode;
+    alphathet:{[key in string]:{name:string,native:string}};
 
     constructor(title:HeaderTitle) {
 
@@ -19,11 +20,19 @@ export class ContextCard{
                 placeholder:title==='From'?"Введите текст":""
             };
             this.footer={} as FooterProps;
+
+            this.alphathet={} as {[key in string]:{name:string,native:string}};
+
     }
 
     setLanguage(language:LanguageCode){
         this.language=language;
     }
+
+    setAlphathet(alphathet:{[key in string]:{name:string,native:string}}){
+        this.alphathet=alphathet;
+    }
+
     setTxt(text: TextProps){
         this.text=text;
     }

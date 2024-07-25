@@ -71,3 +71,9 @@ export const languages =
         "yi": { "name": "Yiddish", "native": "ייִדיש" }
     };
 
+export const bins ={
+    "10":{ "name": "Десятичная", "native": "decimal" },
+    "2":{ "name": "Двоичная", "native": "bin" },
+    "8":{ "name": "Восьмеричная", "native": "oct" },
+    "16":{ "name": "Шестнадцатиричная", "native": "hex" },
+};

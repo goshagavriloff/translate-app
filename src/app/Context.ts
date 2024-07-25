@@ -1,6 +1,6 @@
 import { Translation } from "../types/Language";
 import { ContextCard } from "./ContextCard";
-import { GoogleTranslator } from "./translate/GoogleTranslator";
+import { GoogleTranslator } from "./translate/text/GoogleTranslator";
 import { Translator } from "./translate/Translator";
 
 export class Context {
@@ -15,6 +15,7 @@ export class Context {
 
             from.text.limit = 2000;
 
+            //from.set
             from.setFooter("Загрузить");
             to.setFooter("Скачать");
 
@@ -23,6 +24,7 @@ export class Context {
             this.to = to;
 
             this.translator = new GoogleTranslator();
+            this.setup();
 
         } else {
 
@@ -31,6 +33,12 @@ export class Context {
             this.translator = clone.translator;
         }
 
+    }
+
+    setup():void{
+        [this.from,this.to].forEach((card:ContextCard)=>{
+            card.setAlphathet(this.translator.alphathet);
+        });
     }
 
     clone(): Context {

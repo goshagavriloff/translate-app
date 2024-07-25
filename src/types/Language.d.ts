@@ -1,4 +1,4 @@
-import { languages } from "../utils/constants";
+import { bins, languages } from "../utils/constants";
 
 export type Translation={
     text:string,
@@ -14,7 +14,15 @@ export type Language = {
     descr: LanguageDescr,
 };
 
-export type LanguageCode = keyof (typeof languages);
-type LanguageDescr=typeof languages[LanguageCode];
+export type LanguageCode=LanguageTextCode|LanguageBinCode;
+
+export type LanguageDescr=LanguageTextDescr|LanguageBinDescr;
+
+type LanguageTextCode = keyof (typeof languages);
+type LanguageBinCode=keyof (typeof bins);
+
+type LanguageTextDescr=typeof languages[LanguageTextCode];
+type LanguageBinDescr=typeof bins[LanguageBinCode];
+
 
 

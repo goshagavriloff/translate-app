@@ -1,17 +1,16 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, {useState } from 'react'
 import IonIcon from '@reacticons/ionicons';
 import { HeaderProps } from '../types/Card';
 
 
 import classNames from 'classnames';
-import { languages } from '../utils/constants';
-import { LanguageCode } from '../types/Language';
+import { LanguageCode, LanguageDescr } from '../types/Language';
 
 
-const HeaderCard = (props: {context:HeaderProps,langId:LanguageCode,setLangId:Function}) => {
+const HeaderCard = (props: {context:HeaderProps,langId:LanguageCode,setLangId:Function,alphathet:{[key in LanguageCode]:LanguageDescr}}) => {
 
 
-  const {context,langId,setLangId}=props;
+  const {context,langId,setLangId,alphathet}=props;
   const { title } = context;
 
   const [isOpen, setOpen] = useState(false);
@@ -56,13 +55,13 @@ const HeaderCard = (props: {context:HeaderProps,langId:LanguageCode,setLangId:Fu
 
         <div className={toggleClasses} onClick={handleDropDown}>
           <IonIcon name="globe-outline" className='text-xl transition-transform' />
-          <span className="flex-1 ml-2.5" data-value={langId}>{languages[langId]?.name}</span>
+          <span className="flex-1 ml-2.5" data-value={langId}>{alphathet[langId]?.name}</span>
           <IonIcon name="chevron-down-outline" className={ionicClasses} />
         </div>
 
         <ul className={ulClasses}>
           {
-            Object.entries(languages).map(([key, descr]) => {
+            Object.entries(alphathet).map(([key, descr]) => {
               const { name, native } = descr;
               return (
                 <li key={key} className={liClasses} data-value={key} onClick={handleClick} >{name} ({native})</li>
