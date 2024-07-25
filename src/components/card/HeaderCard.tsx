@@ -1,10 +1,10 @@
 import React, {useState } from 'react'
 import IonIcon from '@reacticons/ionicons';
-import { HeaderProps } from '../types/Card';
+import { HeaderProps } from '../../types/Card';
 
 
 import classNames from 'classnames';
-import { LanguageCode, LanguageDescr } from '../types/Language';
+import { LanguageCode, LanguageDescr } from '../../types/Language';
 
 
 const HeaderCard = (props: {context:HeaderProps,langId:LanguageCode,setLangId:Function,alphathet:{[key in LanguageCode]:LanguageDescr}}) => {

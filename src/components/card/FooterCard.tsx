@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 
 import IonIcon from '@reacticons/ionicons';
-import { FooterProps } from '../types/Card';
+import { FooterProps } from '../../types/Card';
 
 const FooterCard = (props:{context:FooterProps,callback:Function}) => {
   const {context,callback}=props;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { TextProps } from '../types/Card'
+import React from 'react';
+import { TextProps } from '../../types/Card';
 
 const TextCard = (props:{context:TextProps,setTxt:Function}) => {
   const {context,setTxt}=props;
