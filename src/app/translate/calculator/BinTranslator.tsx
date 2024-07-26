@@ -3,7 +3,7 @@ import { bins } from "../../../utils/constants";
 import { Translator } from "../Translator";
 
 export class BinTranslator implements Translator {
-    alphathet: { [x: string]: { name: string; native: string; }; };
+    alphathet: {[key in LanguageBinCode]:LanguageBinDescr};
     svg: string;
     auto_from: LanguageBinCode;
     auto_to: LanguageBinCode;
