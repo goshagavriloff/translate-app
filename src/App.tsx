@@ -6,7 +6,7 @@ import SwitchCard from './components/SwitchCard';
 
 function App() {
 
-  const [context, setContext] = useState<Context>(new Context());
+  const [context, setContext] = useState<Context>(()=>new Context());
 
   const swap = context.swap.bind(context);
 
@@ -35,7 +35,7 @@ function App() {
       setContext(context.clone());
     });
 
-  }, [context.from.language, context.to.language, context.from.text.txt])
+  }, [context.from.language, context.to.language, context.from.text.txt,context.from.alphathet])
 
   return (
     <div className='font-sans'>

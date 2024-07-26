@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Translator } from '../app/translate/Translator'
 import { GoogleTranslator } from '../app/translate/text/GoogleTranslator';
 import { Context } from '../app/Context';
+import { BinTranslator } from '../app/translate/calculator/BinTranslator';
 
 const SwitchCard = (props:{context:Context,setContext:Function}) => {
     const {context,setContext}=props;
@@ -11,7 +12,7 @@ const SwitchCard = (props:{context:Context,setContext:Function}) => {
 
     const svg = useRef<HTMLDivElement>(null);
 
-    const translators=[GoogleTranslator,GoogleTranslator];
+    const translators=[GoogleTranslator,BinTranslator];
     
     const handleClick = () => {
         const _id=(id+1)%translators.length;
@@ -19,18 +20,16 @@ const SwitchCard = (props:{context:Context,setContext:Function}) => {
         setId(_id);
         setTranslator(new _translator());
 
-        context.setTranslator(activeTranslator);
-        context.setup();
-        setContext();
+
       }
 
     useEffect(() => {
         if (svg.current) {
-            if (!svg.current.firstChild) {
                 svg.current.innerHTML=activeTranslator.svg;
-              } else{
-                svg.current.innerHTML=activeTranslator.svg;
-              }
+                context.setTranslator(activeTranslator);
+                context.setup();
+                setContext();
+              
         }
       }, [id]);
     

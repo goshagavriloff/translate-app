@@ -61,7 +61,6 @@ export class Context {
         const { txt } = this.from.text;
         const lang_from = this.from.language;
         const lang_to = this.to.language;
-
         return this.translator
             .execute(txt, lang_from, lang_to)
             .then((result: Translation) => {
